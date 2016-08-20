@@ -89,14 +89,14 @@ if($Domain.ToUpper() -eq "LAB"){
     $compname_txt.add_LostFocus({
         Switch -regex ($($compname_txt.Text.ToString()))
         {
-            "[s]\d{8}\z"{
+            "test\d{8}\z"{
                 $Continue_Button.IsEnabled = $true
                 $status_txt.Text = ""
             }
             default{
                 $compname_txt.Text = "Invalid Computer name!"
                 $Continue_Button.IsEnabled = $false
-                $status_txt.Text = 'Computer names must start with "S" then end with 8 digits. i.e. S12345678'
+                $status_txt.Text = 'Computer names must start with "Test" then end with 8 digits. i.e. Test12345678'
             }
         }
     })
