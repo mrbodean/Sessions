@@ -156,7 +156,7 @@ if($Domain.ToUpper() -eq "LAB"){
     $Test_button.IsEnabled = $false
     $Dev_Button.IsEnabled = $false
     $script:PxRSBSServer = $RBMSRV_combo.SelectedValue.Content.ToString()
-    $script:PxRSBSShare = "\\$PxRSBSServer\RSBS"
+    $script:PxRSBSShare = "\\$PxRSBSServer\Build"
     $script:PxSourcePath = "\\$PxRSBSServer\Source"
     #RBM enviroment logic
     $Prod_button.add_Checked({
