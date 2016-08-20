@@ -7,7 +7,7 @@
 If($testing -eq $false){
     $tsenv = New-Object -COMObject Microsoft.SMS.TSEnvironment
     $tsui = New-Object -COMObject Microsoft.SMS.TSProgressUI
-    $OSDComputername = $tsenv.value("OSDComputername")
+    $Computername = $tsenv.value("OSDComputername")
     $tsui.closeprogressdialog()
 }
 
@@ -71,6 +71,7 @@ if($testing -eq $false){
     $tsenv.value("OSDTimeZone") = $Tz_selection
     $tsenv.value("OSDEnvironment") = $Lifecycle
 }
+Write-Output ""
 Write-output " Computer Name: $computername"
 Write-output " Timezone: $Tz_selection"
 Write-output " Lifecycle: $Lifecycle"

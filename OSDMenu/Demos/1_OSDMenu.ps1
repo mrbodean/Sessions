@@ -59,6 +59,7 @@ $Continue_Button.add_Click({
 
 
 $Form.ShowDialog() | out-null
+Write-Output ""
 Write-output "Computer Name: $computername"
 Write-output "Timezone: $Tz_selection"
 Write-output "Lifecycle: $Lifecycle"
