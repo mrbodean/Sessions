@@ -9,17 +9,17 @@
 <Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="IT Pro Camp OS Deployment" Height="350" Width="525" Name="PxOSDMenu" Topmost="True" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
+    Title="IT Pro Camp OS Deployment" Height="350" Width="525" Name="OSDMenu" Topmost="True" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow">
     <Grid>
         <TextBox Height="26" HorizontalAlignment="Left" Margin="246,29,0,0" Name="compname_txt" VerticalAlignment="Top" Width="247" />
         <Label Content="Computername:" Height="28" HorizontalAlignment="Left" Margin="18,28,0,0" Name="Compname_Label" VerticalAlignment="Top" Width="211" />
-        <ComboBox Height="27" HorizontalAlignment="Left" Margin="246,69,0,0" Name="PxLifecycle_box" VerticalAlignment="Top" Width="245">
+        <ComboBox Height="27" HorizontalAlignment="Left" Margin="246,69,0,0" Name="Lifecycle_box" VerticalAlignment="Top" Width="245">
             <ComboBoxItem Content="Production" IsSelected="True" />
             <ComboBoxItem Content="Staging" />
             <ComboBoxItem Content="Test" />
             <ComboBoxItem Content="Development" />
         </ComboBox>
-        <Label Content="Select Lifecycle" Height="28" HorizontalAlignment="Left" Margin="18,69,0,0" Name="PxLifecycle_Label" VerticalAlignment="Top" Width="211" />
+        <Label Content="Select Lifecycle" Height="28" HorizontalAlignment="Left" Margin="18,69,0,0" Name="Lifecycle_Label" VerticalAlignment="Top" Width="211" />
         <Rectangle Height="28" HorizontalAlignment="Left" Margin="246,114,0,0" Name="Timezone_group" Stroke="Black" VerticalAlignment="Top" Width="245" StrokeThickness="0" />
         <RadioButton Content="Eastern" Height="16" HorizontalAlignment="Left" Margin="270,119,0,0" Name="EasternTz_Button" VerticalAlignment="Top" IsChecked="True" GroupName="Tz" />
         <RadioButton Content="Central" Height="16" HorizontalAlignment="Left" IsChecked="False" Margin="349,119,0,0" Name="CenteralTz_Button" VerticalAlignment="Top" GroupName="Tz" />
@@ -49,8 +49,8 @@ if($Domain.ToUpper() -eq "LAB"){
 $EasternTz_Button.add_Loaded({$Script:Tz_selection = "Eastern"})
 $EasternTz_Button.add_Checked({$Script:Tz_selection = "Eastern"})
 $CenteralTz_Button.add_Checked({$Script:Tz_selection = "Central"})
-$PxLifecycle_box.add_Loaded({$script:PxLifecycle = $PxLifecycle_box.SelectedItem.Content.ToString()})
-$PxLifecycle_box.add_SelectionChanged({$script:PxLifecycle = $PxLifecycle_box.SelectedItem.Content.ToString()})
+$Lifecycle_box.add_Loaded({$script:Lifecycle = $Lifecycle_box.SelectedItem.Content.ToString()})
+$Lifecycle_box.add_SelectionChanged({$script:Lifecycle = $Lifecycle_box.SelectedItem.Content.ToString()})
 $Continue_Button.add_Click({
     $script:computername = $compname_txt.Text.ToString()
     $Form.close()
@@ -61,4 +61,4 @@ $Continue_Button.add_Click({
 $Form.ShowDialog() | out-null
 Write-output "Computer Name: $computername"
 Write-output "Timezone: $Tz_selection"
-Write-output "Lifecycle: $PxLifecycle"
+Write-output "Lifecycle: $Lifecycle"
